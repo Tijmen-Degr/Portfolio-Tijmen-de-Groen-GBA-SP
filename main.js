@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.001, 1000);
 
 let object;
 let objToRender = 'scene';
@@ -30,12 +30,12 @@ loader.load(
 
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.clientWidth, window.clientHeight);
 const controls = new OrbitControls( camera, renderer.domElement );
 
 document.getElementById('GBA-SP3D').appendChild(renderer.domElement); 
 
-camera.position.set(0, 0.07, 0.2);
+camera.position.set(0, 0.04, 0.01);
 
 const topLight = new THREE.DirectionalLight(0xffffff, 1);
 topLight.position.set(500, 500, 500);
